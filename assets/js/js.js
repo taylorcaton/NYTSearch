@@ -38,10 +38,17 @@ function updateScreen(data){
 		headline = data.docs[i].headline.main;
 		pubDate = data.docs[i].pub_date;
 
-
+		var newDiv = $("<div data-num='"+i"'>");
+		newDiv.append("<div id='headline'>");
+		newDiv.append("<div id='pubDate'>");
+		newDiv.append("<div id='link'>");
+		newDiv.append("<div id='summary'>");
+		
 		$("#link").text(link);
 		$("#summary").text(summary);
 		$("#headline").text(headline);
 		$("#pubDate").text(pubDate);
+
+		$("#results").append(newDiv)
 	}
 }
