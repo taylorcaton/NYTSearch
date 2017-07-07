@@ -22,7 +22,20 @@ function getArticle(searchTerm, beginYear, endYear){
 }
 
 $(document).on("click", "#submit", function(){
+	
+	var searchTerm = $("#startDate").val();
+	var beginYear = $("#endDate").val().trim();
+	var endYear = $("#keyword").val().trim();
 
+	if ( !isNAN(beginYear) ) {
+		alert("number");
+	}
+
+	else {
+		alert("NAN");
+	}
+
+	getArticle(keyword, startDate, endDate);
 });
 
 function updateScreen(data){
