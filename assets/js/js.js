@@ -44,6 +44,7 @@ function updateScreen(data){
 	var summary; 
 	var link;
 	var pubDate;
+	var newDiv
 
 	for (var i = 0; i < data.response.docs.length; i++) {
 		link = data.response.docs[i].web_url;
@@ -51,7 +52,8 @@ function updateScreen(data){
 		headline = data.response.docs[i].headline.main;
 		pubDate = data.response.docs[i].pub_date;
 
-		var newDiv = $("<div data-num='"+i+"'>");
+		newDiv = "";
+		newDiv = $("<div data-num='"+i+"'>");
 		newDiv.append("<div id='headline'>");
 		newDiv.append("<div id='pubDate'>");
 		newDiv.append("<div id='link'>");
