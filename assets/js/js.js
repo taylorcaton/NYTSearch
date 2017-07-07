@@ -13,7 +13,7 @@ function getArticle(searchTerm, beginYear, endYear){
 	}).done(function(result) {
 	  console.log(result);
 
-	  updateScreen(results)
+	  updateScreen(result)
 
 	}).fail(function(err) {
 	  throw err;
@@ -45,17 +45,26 @@ function updateScreen(data){
 	var summary; 
 	var link;
 	var pubDate;
+	var newDiv
 
-	for (var i = 0; i < data.docs.length; i++) {
-		link = data.docs[i].web_url;
-		summary = data.docs[i].snippet;
-		headline = data.docs[i].headline.main;
-		pubDate = data.docs[i].pub_date;
+	for (var i = 0; i < data.response.docs.length; i++) {
+		link = data.response.docs[i].web_url;
+		summary = data.response.docs[i].snippet;
+		headline = data.response.docs[i].headline.main;
+		pubDate = data.response.docs[i].pub_date;
 
-
+		newDiv = "";
+		newDiv = $("<div data-num='"+i+"'>");
+		newDiv.append("<div id='headline'>");
+		newDiv.append("<div id='pubDate'>");
+		newDiv.append("<div id='link'>");
+		newDiv.append("<div id='summary'>");
+		
 		$("#link").text(link);
 		$("#summary").text(summary);
 		$("#headline").text(headline);
 		$("#pubDate").text(pubDate);
+
+		$("#results").append(newDiv)
 	}
 }
